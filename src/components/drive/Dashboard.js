@@ -49,7 +49,6 @@ export default function Dashboard() {
           <div className="d-flex flex-wrap">
             {files.map((childFile) => (
               <div key={childFile.id} style={{ maxWidth: "150px" }} className="p-2">
-                {/* Pass handleDeleteFile to the File component */}
                 <File file={childFile} onDelete={handleDeleteFile} />
               </div>
             ))}

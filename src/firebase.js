@@ -1,30 +1,33 @@
-import firebase from "firebase/compat/app"
-import "firebase/compat/auth"
-import "firebase/compat/firestore"
-import "firebase/compat/storage"
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import "firebase/compat/storage";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyArbmZDvfgU8dZ6MS79FtHNg9jDzbGi8Uw",
-  authDomain: "my-dropbox-clone-16a05.firebaseapp.com",
-  projectId: "my-dropbox-clone-16a05",
-  storageBucket: "my-dropbox-clone-16a05.appspot.com",
-  messagingSenderId: "1094090779865",
-  appId: "1:1094090779865:web:ad36b37854e6779d3862c8",
-  measurementId: "G-TNYCZWB3GG"
-})
+  apiKey: "AIzaSyA08-tnMC_z26W00bSkK0yFT2DOUQzxTn4",
+  authDomain: "baseclonebox.firebaseapp.com",
+  projectId: "baseclonebox",
+  storageBucket: "baseclonebox.appspot.com",
+  messagingSenderId: "576434653119",
+  appId: "1:576434653119:web:4b06a52599aa300184030a",
+  measurementId: "G-XEEFGK4X5X"
+});
 
-const firestore = app.firestore()
-
+// Firestore database instance
+const firestore = app.firestore();
 
 export const database = {
   folders: firestore.collection("folders"),
   files: firestore.collection("files"),
-  formatDoc: doc => {
-    return { id: doc.id, ...doc.data() }
+  users: firestore.collection("users"),
+  formatDoc: (doc) => {
+    return { id: doc.id, ...doc.data() };
   },
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
-}
-export const storage = app.storage()
-export const auth = app.auth()
-export default app
+};
 
+// Firebase services
+export const storage = app.storage();
+export const auth = app.auth();
+
+export default app;
